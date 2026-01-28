@@ -100,10 +100,10 @@ export default function ProjectsPage() {
       {/* Category Toggle */}
       <section className="relative z-10 mx-auto max-w-7xl px-6 pb-12">
         <div className="flex justify-center">
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-2 shadow-xl border border-gray-200">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-2 shadow-xl border border-gray-200 inline-flex flex-col sm:flex-row gap-2 w-full sm:w-auto max-w-sm sm:max-w-none">
             <button
               onClick={() => setActiveCategory("web")}
-              className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
+              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex-1 sm:flex-none ${
                 activeCategory === "web"
                   ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg"
                   : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
@@ -113,7 +113,7 @@ export default function ProjectsPage() {
             </button>
             <button
               onClick={() => setActiveCategory("zoho")}
-              className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
+              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex-1 sm:flex-none ${
                 activeCategory === "zoho"
                   ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg"
                   : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"

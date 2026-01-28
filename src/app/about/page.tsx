@@ -168,8 +168,9 @@ export default function AboutPage() {
 
           {/* Timeline Cards */}
           <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-purple-400 via-pink-400 to-blue-400 opacity-30" />
+            {/* Timeline Line - Desktop: center, Mobile: left */}
+            <div className="absolute left-1/2 lg:left-1/2 transform -translate-x-1/2 lg:-translate-x-1/2 w-px h-full bg-gradient-to-b from-purple-400 via-pink-400 to-blue-400 opacity-30 lg:block hidden" />
+            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-purple-400 via-pink-400 to-blue-400 opacity-30 lg:hidden" />
 
             {/* Timeline Items */}
             <div className="space-y-12">
@@ -179,9 +180,9 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="relative flex items-center"
+                className="relative flex items-center lg:items-center"
               >
-                <div className="w-full lg:w-1/2 lg:pr-8 text-right">
+                <div className="w-full lg:w-1/2 lg:pr-8 text-left lg:text-right">
                   <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <div className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-600 mb-2">
                       2021-2022
@@ -195,7 +196,7 @@ export default function AboutPage() {
                     <p className="text-gray-500 text-sm">
                       Pursued Physical Science Module with focus on Mathematics and Physics. Built strong foundation in analytical thinking and problem-solving.
                     </p>
-                    <div className="mt-4 flex flex-wrap gap-2 justify-end">
+                    <div className="mt-4 flex flex-wrap gap-2 lg:justify-end">
                       <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">
                         Mathematics
                       </span>
@@ -211,8 +212,8 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-400 rounded-full border-4 border-gray-300 shadow-[0_0_20px_rgba(168,85,247,0.8)]" />
-                <div className="w-full lg:w-1/2 lg:pl-8" />
+                <div className="absolute left-8 lg:left-1/2 transform -translate-x-1/2 lg:-translate-x-1/2 w-4 h-4 bg-purple-400 rounded-full border-4 border-gray-300 shadow-[0_0_20px_rgba(168,85,247,0.8)]" />
+                <div className="w-full lg:w-1/2 lg:pl-8 lg:block hidden" />
               </motion.div>
 
               {/* Bachelor's Degree */}
@@ -221,10 +222,10 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative flex items-center"
+                className="relative flex items-center lg:items-center"
               >
-                <div className="w-full lg:w-1/2 lg:pr-8" />
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-pink-400 rounded-full border-4 border-gray-300 shadow-[0_0_20px_rgba(244,114,182,0.8)]" />
+                <div className="w-full lg:w-1/2 lg:pr-8 lg:block hidden" />
+                <div className="absolute left-8 lg:left-1/2 transform -translate-x-1/2 lg:-translate-x-1/2 w-4 h-4 bg-pink-400 rounded-full border-4 border-gray-300 shadow-[0_0_20px_rgba(244,114,182,0.8)]" />
                 <div className="w-full lg:w-1/2 lg:pl-8">
                   <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <div className="text-sm font-semibold uppercase tracking-[0.2em] text-pink-600 mb-2">
@@ -260,9 +261,9 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="relative flex items-center"
+                className="relative flex items-center lg:items-center"
               >
-                <div className="w-full lg:w-1/2 lg:pr-8 text-right">
+                <div className="w-full lg:w-1/2 lg:pr-8 text-left lg:text-right">
                   <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <div className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 mb-2">
                       2025-Present
@@ -276,7 +277,7 @@ export default function AboutPage() {
                     <p className="text-gray-500 text-sm">
                       Developing custom solutions and web applications using ZOHO platform and modern web technologies. Working on enterprise-level projects with focus on performance and user experience.
                     </p>
-                    <div className="mt-4 flex flex-wrap gap-2 justify-end">
+                    <div className="mt-4 flex flex-wrap gap-2 lg:justify-end">
                       <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">
                         ZOHO Creator
                       </span>
@@ -289,8 +290,8 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-400 rounded-full border-4 border-black shadow-[0_0_20px_rgba(59,130,246,0.8)]" />
-                <div className="w-full lg:w-1/2 lg:pl-8" />
+                <div className="absolute left-8 lg:left-1/2 transform -translate-x-1/2 lg:-translate-x-1/2 w-4 h-4 bg-blue-400 rounded-full border-4 border-black shadow-[0_0_20px_rgba(59,130,246,0.8)]" />
+                <div className="w-full lg:w-1/2 lg:pl-8 lg:block hidden" />
               </motion.div>
             </div>
           </div>
