@@ -183,7 +183,7 @@ export default function AboutPage() {
                 className="relative flex items-center lg:items-center"
               >
                 <div className="w-full lg:w-1/2 lg:pr-8 text-left lg:text-right">
-                  <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300 relative z-20">
                     <div className="text-sm font-semibold uppercase tracking-[0.2em] text-purple-600 mb-2">
                       2021-2022
                     </div>
@@ -227,7 +227,7 @@ export default function AboutPage() {
                 <div className="w-full lg:w-1/2 lg:pr-8 lg:block hidden" />
                 <div className="absolute left-8 lg:left-1/2 transform -translate-x-1/2 lg:-translate-x-1/2 w-4 h-4 bg-pink-400 rounded-full border-4 border-gray-300 shadow-[0_0_20px_rgba(244,114,182,0.8)]" />
                 <div className="w-full lg:w-1/2 lg:pl-8">
-                  <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300 relative z-20">
                     <div className="text-sm font-semibold uppercase tracking-[0.2em] text-pink-600 mb-2">
                       2022-2026
                     </div>
@@ -264,7 +264,7 @@ export default function AboutPage() {
                 className="relative flex items-center lg:items-center"
               >
                 <div className="w-full lg:w-1/2 lg:pr-8 text-left lg:text-right">
-                  <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <div className="bg-white rounded-2xl p-6 border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300 relative z-20">
                     <div className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600 mb-2">
                       2025-Present
                     </div>

@@ -57,6 +57,8 @@ const caseStudies = [
 export default function ProjectsPage() {
   const [activeCategory, setActiveCategory] = useState<"web" | "zoho">("web");
 
+  // Cache bust: v2 - mobile layout fixes
+
   return (
     <div className="min-h-screen bg-white text-gray-900">
       <Navbar />
