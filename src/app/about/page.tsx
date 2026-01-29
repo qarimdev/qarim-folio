@@ -7,6 +7,7 @@ import Image from "next/image";
 import FallingText from "@/components/FallingText";
 import Navbar from "@/components/Navbar";
 import ScrollToTop from "@/components/ScrollToTop";
+import { useState } from "react";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -30,6 +31,36 @@ const containerVariants = {
 };
 
 export default function AboutPage() {
+  const [selectedAward, setSelectedAward] = useState<"academic" | "acknowledgment" | "leadership" | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  // Image galleries for each award type
+  const awardImages = {
+    academic: [
+      "/dean-list1.jpg",
+      "/dean-list2.jpg",
+      "/dean-list3.jpg",
+      "/dean-list4.jpg",
+      "/dean-list5.jpg",
+      "/dean-list6.jpg"
+    ],
+    acknowledgment: [
+      "/ack1.jpg",
+      "/ack7.jpg",
+      "/ack8.jpg",
+      "/ack9.jpg",
+      "/ack10.jpg",
+      "/ack6.jpg",
+      "/ack2.jpg",
+      "/ack3.jpg",
+      "/ack4.jpg"
+    ],
+    leadership: [
+      "/leader1.jpg",
+      "/leader2.jpg",
+      "/leader3.jpg"
+    ]
+  };
   return (
     <div className="min-h-screen bg-white text-gray-900">
       <Navbar />
@@ -445,7 +476,11 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <motion.div variants={sectionVariants} className="group relative overflow-hidden rounded-3xl border border-white bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 hover:border-purple-500/50">
+            <motion.div 
+              variants={sectionVariants} 
+              className="group relative overflow-hidden rounded-3xl border border-white bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 hover:border-yellow-500/50 cursor-pointer"
+              onClick={() => setSelectedAward(selectedAward === "academic" ? null : "academic")}
+            >
               <div className="aspect-[4/3] overflow-hidden">
                 <img 
                   src="/academic.jpg" 
@@ -454,9 +489,9 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-                <div className="flex items-center mb-3">
-                  <div className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-t from-black/90 to-transparent">
+                <div className="flex items-center mb-2 sm:mb-3">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-xl flex items-center justify-center mr-3 sm:mr-4 shadow-lg">
                     <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>
@@ -469,7 +504,11 @@ export default function AboutPage() {
               </div>
             </motion.div>
 
-            <motion.div variants={sectionVariants} className="group relative overflow-hidden rounded-3xl border border-white bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 hover:border-pink-500/50">
+            <motion.div 
+              variants={sectionVariants} 
+              className="group relative overflow-hidden rounded-3xl border border-white bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 hover:border-pink-500/50 cursor-pointer"
+              onClick={() => setSelectedAward(selectedAward === "acknowledgment" ? null : "acknowledgment")}
+            >
               <div className="aspect-[4/3] overflow-hidden">
                 <img 
                   src="/involvement.jpg" 
@@ -478,9 +517,9 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-                <div className="flex items-center mb-3">
-                  <div className="w-12 h-12 bg-gradient-to-r from-pink-400 to-orange-400 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-t from-black/90 to-transparent">
+                <div className="flex items-center mb-2 sm:mb-3">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-pink-400 to-orange-400 rounded-xl flex items-center justify-center mr-3 sm:mr-4 shadow-lg">
                     <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
                     </svg>
@@ -493,7 +532,11 @@ export default function AboutPage() {
               </div>
             </motion.div>
 
-            <motion.div variants={sectionVariants} className="group relative overflow-hidden rounded-3xl border border-white bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 hover:border-blue-500/50">
+            <motion.div 
+              variants={sectionVariants} 
+              className="group relative overflow-hidden rounded-3xl border border-white bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 hover:border-blue-500/50 cursor-pointer"
+              onClick={() => setSelectedAward(selectedAward === "leadership" ? null : "leadership")}
+            >
               <div className="aspect-[4/3] overflow-hidden">
                 <img 
                   src="/leadership.jpg" 
@@ -502,9 +545,9 @@ export default function AboutPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/90 to-transparent">
-                <div className="flex items-center mb-3">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl flex items-center justify-center mr-4 shadow-lg">
+              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 bg-gradient-to-t from-black/90 to-transparent">
+                <div className="flex items-center mb-2 sm:mb-3">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl flex items-center justify-center mr-3 sm:mr-4 shadow-lg">
                     <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                     </svg>
@@ -519,6 +562,137 @@ export default function AboutPage() {
           </div>
         </motion.div>
       </section>
+
+      {/* Award Image Gallery Section */}
+      {selectedAward && (
+        <section className="relative z-10 mx-auto max-w-7xl px-6 pb-32">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-8"
+          >
+            {/* Gallery Header */}
+            <div className="text-center">
+              <h3 className="text-2xl md:text-3xl font-semibold mb-4">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+                  {selectedAward === "academic" && "Academic Excellence Gallery"}
+                  {selectedAward === "acknowledgment" && "Acknowledgment Gallery"}
+                  {selectedAward === "leadership" && "Leadership Gallery"}
+                </span>
+              </h3>
+              {/* <button
+                onClick={() => setSelectedAward(null)}
+                className="text-gray-500 hover:text-gray-700 text-sm font-medium transition-colors"
+              >
+                Click here to clear
+              </button> */}
+            </div>
+
+            {/* Image Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {awardImages[selectedAward].map((image, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="group relative overflow-hidden rounded-2xl bg-gray-900 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+                  onClick={() => setSelectedImage(image)}
+                >
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={image}
+                      alt={`${selectedAward} image ${index + 1}`}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-white text-xs sm:text-sm font-medium">
+                      {selectedAward === "academic" && "Click to see"}
+                      {selectedAward === "acknowledgment" && "Click to see"}
+                      {selectedAward === "leadership" && "Click to see"}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </section>
+      )}
+      
+      {/* Image Modal */}
+      {selectedImage && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/90 backdrop-blur-sm"
+          onClick={() => setSelectedImage(null)}
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="relative max-w-4xl max-h-[90vh] w-full mx-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute -top-8 sm:-top-12 right-0 text-white hover:text-gray-300 transition-colors p-2 z-10"
+            >
+              <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            
+            {/* Image */}
+            <div className="relative bg-black rounded-lg overflow-hidden">
+              <img
+                src={selectedImage}
+                alt="Award certificate"
+                className="w-full h-full object-contain max-h-[90vh]"
+              />
+            </div>
+            
+            {/* Navigation Buttons */}
+            {selectedAward && (
+              <div className="absolute bottom-2 sm:bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 sm:gap-4">
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const currentIndex = awardImages[selectedAward].indexOf(selectedImage);
+                    const prevIndex = currentIndex > 0 ? currentIndex - 1 : awardImages[selectedAward].length - 1;
+                    setSelectedImage(awardImages[selectedAward][prevIndex]);
+                  }}
+                  className="bg-white/20 backdrop-blur-sm text-white p-2 sm:p-3 rounded-full hover:bg-white/30 transition-colors"
+                >
+                  <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const currentIndex = awardImages[selectedAward].indexOf(selectedImage);
+                    const nextIndex = currentIndex < awardImages[selectedAward].length - 1 ? currentIndex + 1 : 0;
+                    setSelectedImage(awardImages[selectedAward][nextIndex]);
+                  }}
+                  className="bg-white/20 backdrop-blur-sm text-white p-2 sm:p-3 rounded-full hover:bg-white/30 transition-colors"
+                >
+                  <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            )}
+          </motion.div>
+        </motion.div>
+      )}
       
       <ScrollToTop />
     </div>
