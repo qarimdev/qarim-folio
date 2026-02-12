@@ -30,6 +30,17 @@ const featuredProjects = [
   }
 ];
 
+const mobileProjects = [
+  {
+    title: "Student Fitness Mobile Application for FSKM UiTM",
+    description: "A real time tracking application for student fitness activities and progress monitoring.",
+    image: "/fskm.jpg",
+    tech: ["Flutter", "Firebase", "Dart"],
+    link: "https://www.youtube.com/watch?v=GpIrwiAK8-k&t=4s",
+    gradient: "from-blue-500 to-purple-500"
+  }
+];
+
 const caseStudies = [
   {
     title: "Calibration System",
@@ -55,7 +66,7 @@ const caseStudies = [
 ];
 
 export default function ProjectsPage() {
-  const [activeCategory, setActiveCategory] = useState<"web" | "zoho">("web");
+  const [activeCategory, setActiveCategory] = useState<"web" | "zoho" | "mobile">("web");
 
   // Cache bust: v2 - mobile layout fixes
 
@@ -123,6 +134,16 @@ export default function ProjectsPage() {
             >
               ⚡ Zoho Solutions
             </button>
+            <button
+              onClick={() => setActiveCategory("mobile")}
+              className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex-1 sm:flex-none ${
+                activeCategory === "mobile"
+                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg"
+                  : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+              }`}
+            >
+              📱 Mobile Apps
+            </button>
           </div>
         </div>
       </section>
@@ -147,7 +168,7 @@ export default function ProjectsPage() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {featuredProjects.map((project, index) => (
                 <motion.div
                   key={index}
@@ -158,7 +179,7 @@ export default function ProjectsPage() {
                 >
                   <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden">
                     {/* Image Container */}
-                    <div className="relative h-64 overflow-hidden">
+                    <div className="relative h-48 md:h-56 lg:h-64 overflow-hidden">
                       <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-10`}></div>
                       <img
                         src={project.image}
@@ -171,7 +192,7 @@ export default function ProjectsPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                       <div className="absolute bottom-4 left-4">
-                        <h3 className="text-2xl font-bold text-white mb-2">{project.title}</h3>
+                        <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white mb-2">{project.title}</h3>
                         <div className="flex flex-wrap gap-2">
                           {project.tech.map((tech, i) => (
                             <span
@@ -205,6 +226,93 @@ export default function ProjectsPage() {
               ))}
             </div>
           </motion.div>
+        ) : activeCategory === "mobile" ? (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-8"
+          >
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold mb-4">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
+                  Mobile Development
+                </span>
+              </h2>
+              <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                Native mobile applications built with modern frameworks and best practices
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              <div className="hidden md:block lg:block"></div>
+              {mobileProjects.map((project, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group"
+                >
+                  <div className="relative bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden">
+                    {/* Header */}
+                    <div className={`h-32 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
+                      <div className="absolute inset-0 bg-black/20"></div>
+                      <div className="absolute bottom-4 left-4">
+                        <h3 className="text-xl font-bold text-white">{project.title}</h3>
+                      </div>
+                      <div className="absolute top-4 right-4">
+                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
+                          <span className="text-white text-lg">📱</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="p-6">
+                      <p className="text-gray-600 mb-4 text-sm">{project.description}</p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.tech.map((tech, i) => (
+                          <span
+                            key={i}
+                            className="px-3 py-1 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 text-xs rounded-full font-medium"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden mb-4">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.src = `https://picsum.photos/seed/${project.title}/400/300.jpg`;
+                          }}
+                        />
+                      </div>
+                      <div className="flex justify-center">
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r ${project.gradient} text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 text-sm md:text-base`}
+                        >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Watch Demo
+                      </a>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+              <div className="hidden md:block lg:block"></div>
+            </div>
+          </motion.div>
         ) : (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -223,7 +331,7 @@ export default function ProjectsPage() {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {caseStudies.map((project, index) => (
                 <motion.div
                   key={index}
