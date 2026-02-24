@@ -29,7 +29,8 @@ export default function Navbar() {
       bgColor: "#271E37",
       textColor: "#fff",
       links: [
-        { label: "All Projects", href: "/projects#all", ariaLabel: "All Projects" }
+        { label: "All Projects", href: "/projects#all", ariaLabel: "All Projects" },
+        { label: "GitHub", href: "https://github.com/qarimdev", ariaLabel: "GitHub Profile" }
       ]
     },
     {
